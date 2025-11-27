@@ -1,4 +1,4 @@
 include README.md
 include LICENSE
 include pyproject.toml
-recursive-include pygmx_toolkit *.py
+recursive-include spivey_computational_toolkit *.py

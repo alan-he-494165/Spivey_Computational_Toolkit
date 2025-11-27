@@ -4,14 +4,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="pygmx-toolkit",
+    name="Spivey-computational-toolkit",
     version="0.1.0",
-    author="Alan Spivey",
+    author="Alan He from Spivey Group",
     author_email="your.email@example.com",
     description="A Python toolkit for GROMACS XVG file analysis and visualization",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/pygmx-toolkit",
+    url="https://github.com/SpiveyGroup/Spivey-computational-toolkit",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",

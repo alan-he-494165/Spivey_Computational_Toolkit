@@ -1,9 +1,10 @@
-# pygmx-toolkit
+# Spivey-computational-toolkit
 
-A Python toolkit for GROMACS XVG file analysis and visualization.
+A Python toolkit for computational chemistry and molecular dynamics analysis from the Spivey Group.
 
 ## Features
 
+### pygmx submodule
 - **XVG File Parsing**: Automatically parse GROMACS XVG files with support for multiple data columns
 - **Data Visualization**: Plot raw data and cumulative averages side-by-side
 - **Statistical Analysis**: Calculate mean, std dev, min, max, and cumulative averages
@@ -14,13 +15,13 @@ A Python toolkit for GROMACS XVG file analysis and visualization.
 
 ### From PyPI (when published)
 ```bash
-pip install pygmx-toolkit
+pip install Spivey-computational-toolkit
 ```
 
 ### From source
 ```bash
-git clone https://github.com/yourusername/pygmx-toolkit.git
-cd pygmx-toolkit
+git clone https://github.com/SpiveyGroup/Spivey-computational-toolkit.git
+cd Spivey-computational-toolkit
 pip install -e .
 ```
 
@@ -31,8 +32,10 @@ pip install -e .[dev]
 
 ## Quick Start
 
+### Using pygmx for GROMACS XVG analysis
+
 ```python
-from pygmx_toolkit import Gmx_Xvg
+from spivey_computational_toolkit.pygmx import Gmx_Xvg
 
 # Load XVG file
 xvg = Gmx_Xvg('energy.xvg')
@@ -69,7 +72,7 @@ MIT License
 
 ## Author
 
-Alan Spivey
+Alan He from Spivey Group
 
 ## Contributing
 

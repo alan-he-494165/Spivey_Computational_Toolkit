@@ -1,31 +1,34 @@
-# pygmx-toolkit Package Structure
+# Spivey-computational-toolkit Package Structure
 
 ## Package Successfully Created! ✓
 
-Your Python package is now pip-installable and has been installed in development mode.
+Your Python package is now pip-installable with modular structure.
 
 ## Package Structure
 
 ```
 Spivey_Computational_Toolkit/
-├── pygmx_toolkit/              # Main package directory
-│   ├── __init__.py            # Package initialization (exports Gmx_Xvg)
-│   └── xvg.py                 # XVG file analysis module
-├── setup.py                    # Setup configuration (legacy)
-├── pyproject.toml             # Modern Python project configuration
-├── README.md                  # Package documentation
-├── INSTALL.md                 # Installation guide
-├── LICENSE                    # MIT License
-├── MANIFEST.in               # Files to include in distribution
-├── .gitignore                # Git ignore rules
-└── pygmx_toolkit.py          # Original standalone script (can be removed)
+├── spivey_computational_toolkit/    # Main package directory
+│   ├── __init__.py                 # Package initialization
+│   └── pygmx/                      # GROMACS analysis submodule
+│       ├── __init__.py            # Exports Gmx_Xvg
+│       └── xvg.py                 # XVG file analysis module
+├── setup.py                        # Setup configuration (legacy)
+├── pyproject.toml                 # Modern Python project configuration
+├── README.md                      # Package documentation
+├── INSTALL.md                     # Installation guide
+├── LICENSE                        # MIT License
+├── MANIFEST.in                   # Files to include in distribution
+├── .gitignore                    # Git ignore rules
+└── pygmx_toolkit.py              # Original standalone script (can be removed)
 ```
 
 ## What Was Created
 
 ### 1. **Core Package Files**
-   - `pygmx_toolkit/__init__.py` - Makes it a Python package, exports `Gmx_Xvg`
-   - `pygmx_toolkit/xvg.py` - Contains the `Gmx_Xvg` class
+   - `spivey_computational_toolkit/__init__.py` - Main package initialization
+   - `spivey_computational_toolkit/pygmx/__init__.py` - pygmx submodule, exports `Gmx_Xvg`
+   - `spivey_computational_toolkit/pygmx/xvg.py` - Contains the `Gmx_Xvg` class
 
 ### 2. **Configuration Files**
    - `setup.py` - Traditional setuptools configuration
@@ -35,17 +38,17 @@ Spivey_Computational_Toolkit/
 ### 3. **Documentation**
    - `README.md` - User-facing documentation with examples
    - `INSTALL.md` - Detailed installation instructions
-   - `LICENSE` - MIT License
+   - `LICENSE` - MIT License (Spivey Group)
    - `.gitignore` - Git ignore patterns
 
 ## Installation Status
 
-**✓ Package installed in development mode**
+**Ready to install!**
 
 You can now use it anywhere:
 
 ```python
-from pygmx_toolkit import Gmx_Xvg
+from spivey_computational_toolkit.pygmx import Gmx_Xvg
 
 xvg = Gmx_Xvg('your_file.xvg')
 xvg.get_summary()
@@ -62,7 +65,7 @@ pip install -e .
 
 ### Uninstall
 ```bash
-pip uninstall pygmx-toolkit
+pip uninstall Spivey-computational-toolkit
 ```
 
 ### Build Distribution
@@ -72,50 +75,23 @@ python -m build
 ```
 
 This creates:
-- `dist/pygmx_toolkit-0.1.0.tar.gz`
-- `dist/pygmx_toolkit-0.1.0-py3-none-any.whl`
+- `dist/Spivey_computational_toolkit-0.1.0.tar.gz`
+- `dist/Spivey_computational_toolkit-0.1.0-py3-none-any.whl`
 
 ### Install from Wheel
 ```bash
-pip install dist/pygmx_toolkit-0.1.0-py3-none-any.whl
+pip install dist/Spivey_computational_toolkit-0.1.0-py3-none-any.whl
 ```
 
 ## Features
 
 - ✓ Pip installable (`pip install -e .`)
-- ✓ Proper package structure
+- ✓ Modular package structure with submodules
 - ✓ Dependencies automatically installed
 - ✓ Works in any Python environment
 - ✓ Can be published to PyPI
 - ✓ Includes documentation
-- ✓ MIT Licensed
-
-## Next Steps
-
-1. **Share with others**: They can install with:
-   ```bash
-   pip install git+https://github.com/yourusername/pygmx-toolkit.git
-   ```
-
-2. **Publish to PyPI** (optional):
-   ```bash
-   pip install twine
-   python -m build
-   twine upload dist/*
-   ```
-   Then anyone can install with:
-   ```bash
-   pip install pygmx-toolkit
-   ```
-
-3. **Version Control**:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: pygmx-toolkit package"
-   git remote add origin https://github.com/yourusername/pygmx-toolkit.git
-   git push -u origin main
-   ```
+- ✓ MIT Licensed (Spivey Group)
 
 ## Dependencies
 
@@ -123,3 +99,7 @@ pip install dist/pygmx_toolkit-0.1.0-py3-none-any.whl
 - matplotlib >= 3.3.0
 
 All dependencies are automatically installed when you run `pip install`.
+
+## Author
+
+Alan He from Spivey Group

@@ -1,4 +1,4 @@
-# Installation Guide for pygmx-toolkit
+# Installation Guide for Spivey-computational-toolkit
 
 ## Quick Installation
 
@@ -32,14 +32,14 @@ pip install -e .[dev]
 After installation, test it in Python:
 
 ```python
-from pygmx_toolkit import Gmx_Xvg
+from spivey_computational_toolkit.pygmx import Gmx_Xvg
 print("Installation successful!")
 ```
 
 ## Usage Example
 
 ```python
-from pygmx_toolkit import Gmx_Xvg
+from spivey_computational_toolkit.pygmx import Gmx_Xvg
 
 # Load and analyze XVG file
 xvg = Gmx_Xvg('your_file.xvg')
@@ -54,7 +54,7 @@ final_avg = xvg.get_final_cumulative_average('Temperature')
 ## Uninstall
 
 ```bash
-pip uninstall pygmx-toolkit
+pip uninstall Spivey-computational-toolkit
 ```
 
 ## Building Distribution Packages (Optional)
@@ -70,8 +70,8 @@ cd /Users/alan/Spivey_Computational_Toolkit
 python -m build
 
 # This creates:
-# - dist/pygmx_toolkit-0.1.0.tar.gz (source distribution)
-# - dist/pygmx_toolkit-0.1.0-py3-none-any.whl (wheel)
+# - dist/Spivey_computational_toolkit-0.1.0.tar.gz (source distribution)
+# - dist/Spivey_computational_toolkit-0.1.0-py3-none-any.whl (wheel)
 ```
 
 ## Publishing to PyPI (Optional)
@@ -91,8 +91,8 @@ twine upload dist/*
 ### Import Error
 If you get an import error, make sure:
 1. You're in the correct Python environment
-2. The package is installed: `pip list | grep pygmx`
-3. Try reinstalling: `pip uninstall pygmx-toolkit && pip install -e .`
+2. The package is installed: `pip list | grep Spivey`
+3. Try reinstalling: `pip uninstall Spivey-computational-toolkit && pip install -e .`
 
 ### Dependencies
 If matplotlib or numpy are missing:

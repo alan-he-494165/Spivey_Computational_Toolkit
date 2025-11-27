@@ -3,14 +3,14 @@ requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pygmx-toolkit"
+name = "Spivey-computational-toolkit"
 version = "0.1.0"
 description = "A Python toolkit for GROMACS XVG file analysis and visualization"
 readme = "README.md"
 requires-python = ">=3.7"
 license = {text = "MIT"}
 authors = [
-    {name = "Alan Spivey", email = "your.email@example.com"}
+    {name = "Alan He from Spivey Group", email = "your.email@example.com"}
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -37,5 +37,5 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/pygmx-toolkit"
-Repository = "https://github.com/yourusername/pygmx-toolkit"
+Homepage = "https://github.com/SpiveyGroup/Spivey-computational-toolkit"
+Repository = "https://github.com/SpiveyGroup/Spivey-computational-toolkit"
