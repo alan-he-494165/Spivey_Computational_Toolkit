@@ -7,7 +7,7 @@ A Python toolkit for computational chemistry and molecular dynamics analysis fro
 ### pygmx submodule
 - **XVG File Parsing**: Automatically parse GROMACS XVG files with support for multiple data columns
 - **Data Visualization**: Plot raw data and cumulative averages side-by-side
-- **Statistical Analysis**: Calculate mean, std dev, min, max, and cumulative averages
+- **Statistical Analysis**: Cumulative averages
 - **Flexible Access**: Retrieve data using column names (s0, s1, etc.) or legend labels
 - **Time Range Filtering**: Focus on specific time windows for analysis
 
