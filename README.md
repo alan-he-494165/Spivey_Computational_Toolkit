@@ -72,7 +72,7 @@ MIT License
 
 ## Author
 
-Alan He from Spivey Group
+Alan He from [Spivey Group](https://www.imperial.ac.uk/spivey-group/)
 
 ## Contributing
 
