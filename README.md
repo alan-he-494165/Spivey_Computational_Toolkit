@@ -38,7 +38,7 @@ pip install -e .[dev]
 from spivey_computational_toolkit.pygmx import Gmx_Xvg
 
 # Load XVG file
-xvg = Gmx_Xvg('energy.xvg')
+xvg = Gmx_Xvg('nvt.xvg')
 
 # Print summary statistics
 xvg.get_summary()
