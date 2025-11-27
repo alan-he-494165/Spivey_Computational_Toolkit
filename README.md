@@ -50,10 +50,10 @@ xvg.plot_separate()
 xvg.plot_separate(time_start=1000, time_end=5000)
 
 # Get cumulative average for a column
-cum_avg = xvg.get_cumulative_average('Temperature')
+cum_avg = xvg.get_cumulative_average('Potential')
 
 # Get final converged value
-final_value = xvg.get_final_cumulative_average('Temperature')
+final_value = xvg.get_final_cumulative_average('Potential')
 
 # Get all final cumulative averages
 all_finals = xvg.get_all_final_cumulative_averages()
