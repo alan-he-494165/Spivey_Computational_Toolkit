@@ -22,12 +22,7 @@ pip install Spivey-computational-toolkit
 ```bash
 git clone https://github.com/SpiveyGroup/Spivey-computational-toolkit.git
 cd Spivey-computational-toolkit
-pip install -e .
-```
-
-### Development installation
-```bash
-pip install -e .[dev]
+pip install .
 ```
 
 ## Quick Start
