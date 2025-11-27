@@ -13,11 +13,6 @@ A Python toolkit for computational chemistry and molecular dynamics analysis fro
 
 ## Installation
 
-### From PyPI (when published)
-```bash
-pip install Spivey-computational-toolkit
-```
-
 ### From source
 ```bash
 git clone https://github.com/SpiveyGroup/Spivey-computational-toolkit.git
