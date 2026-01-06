@@ -12,7 +12,11 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/SpiveyGroup/Spivey-computational-toolkit",
-    packages=find_packages(),
+    packages=find_packages(include=[
+        'spivey_computational_toolkit',
+        'spivey_computational_toolkit.*'
+    ]),
+    include_package_data=True,
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Science/Research",
