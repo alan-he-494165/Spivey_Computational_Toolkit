@@ -50,6 +50,40 @@ all_finals = xvg.get_all_final_cumulative_averages()
 print(all_finals)
 ```
 
+## orca_py submodule
+
+The `orca_py` submodule provides simple helpers for reading and writing ORCA-style XYZ files and trajectories.
+
+- `atom`: lightweight container for an atom (`atom_type`, `x`, `y`, `z`).
+- `xyz_molecule`: represents a single XYZ frame with:
+	- `from_xyz(filepath)` — classmethod to parse a single-frame XYZ file and extract `comment`, `atom_list`, and an optional energy parsed from the comment line.
+	- `add_atom(atom_type, x, y, z)` — add an atom to the molecule.
+	- `to_xyz(filepath)` — write the molecule out to an XYZ file.
+- `mol_group`: container for multiple `xyz_molecule` frames with:
+	- `load_trj(filepath)` — load a simple trajectory where frames are contiguous (no blank lines between frames).
+	- `load_allxyz(filepath)` — load a file with a blank line and `>` separators between frames (allxyz format).
+	- `to_trj(filepath)` — write frames in the simple trajectory format.
+	- `to_allxyz(filepath)` — write frames in the allxyz format (blank line and `>` separators).
+
+Basic examples:
+
+```python
+from spivey_computational_toolkit.orca_py.orca_xyz import xyz_molecule, mol_group
+
+# Read a single XYZ file
+mol = xyz_molecule.from_xyz('sample.xyz')
+print('atoms:', len(mol.atom_list), 'energy:', mol.energy)
+
+# Read a trajectory
+group = mol_group.load_trj('traj.xyz')
+print('frames:', group.n_mol)
+print('energies:', group.energy[:5])
+
+# Write back to disk
+group.to_trj('out_traj.xyz')
+group.to_allxyz('out_all.xyz')
+```
+
 ## Requirements
 
 - Python >= 3.7
