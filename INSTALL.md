@@ -57,35 +57,6 @@ final_avg = xvg.get_final_cumulative_average('Temperature')
 pip uninstall Spivey-computational-toolkit
 ```
 
-## Building Distribution Packages (Optional)
-
-If you want to create wheel/source distributions:
-
-```bash
-# Install build tools
-pip install build
-
-# Build the package
-cd /Users/alan/Spivey_Computational_Toolkit
-python -m build
-
-# This creates:
-# - dist/Spivey_computational_toolkit-0.1.0.tar.gz (source distribution)
-# - dist/Spivey_computational_toolkit-0.1.0-py3-none-any.whl (wheel)
-```
-
-## Publishing to PyPI (Optional)
-
-If you want to publish to PyPI for public use:
-
-```bash
-# Install twine
-pip install twine
-
-# Upload to PyPI
-twine upload dist/*
-```
-
 ## Troubleshooting
 
 ### Import Error
