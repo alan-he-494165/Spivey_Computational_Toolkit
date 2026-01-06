@@ -68,7 +68,7 @@ The `orca_py` submodule provides simple helpers for reading and writing ORCA-sty
 Basic examples:
 
 ```python
-from spivey_computational_toolkit.orca_py.orca_xyz import xyz_molecule, mol_group
+from spivey_computational_toolkit.orca_py import xyz_molecule, mol_group, atom
 
 # Read a single XYZ file
 mol = xyz_molecule.from_xyz('sample.xyz')
