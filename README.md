@@ -15,7 +15,7 @@ A Python toolkit for computational chemistry and molecular dynamics analysis fro
 
 ### From source
 ```bash
-git clone https://github.com/SpiveyGroup/Spivey-computational-toolkit.git
+git clone https://github.com/alan-he-494165/Spivey_Computational_Toolkit.git
 cd Spivey-computational-toolkit
 pip install .
 ```
