@@ -6,7 +6,7 @@ XYZ files and simple multi-frame trajectory formats.
 Public symbols:
 - `atom` — lightweight atom container
 - `xyz_molecule` — single XYZ frame
-- `mol_group` — collection of frames / trajectory
+- `mol_group` — collection of frames / trajectory - special for ORCA
 """)
 
 from .orca_xyz import atom, xyz_molecule, mol_group

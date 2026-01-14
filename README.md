@@ -66,6 +66,7 @@ The `orca_py` submodule provides simple helpers for reading and writing ORCA-sty
 	- `to_xyz(filepath)` — write the molecule out to an XYZ file.
 	- `get_distance(atom_index1, atom_index2)` — calculate the distance between two atoms (in Angstroms).
 	- `get_bond_angle(atom_index1, atom_index2, atom_index3)` — calculate the bond angle between three atoms in degrees (atom_index2 is the vertex).
+	- `align_atoms(reference_mol, tolerance=0.5)` — align the atom ordering to match a reference molecule based on atom types and spatial proximity. Useful when comparing structures from different sources with different atom orderings.
 - `mol_group`: container for multiple `xyz_molecule` frames with:
 	- `load_trj(filepath)` — load a simple trajectory where frames are contiguous (no blank lines between frames).
 	- `load_allxyz(filepath)` — load a file with a blank line and `>` separators between frames (allxyz format).
@@ -88,6 +89,12 @@ print(f'Bond length: {distance:.3f} Angstroms')
 
 angle = mol.get_bond_angle(0, 1, 2)  # Angle at atom 1
 print(f'Bond angle: {angle:.2f} degrees')
+
+# Align atoms to match a reference structure (useful when atom indices differ)
+reference = xyz_molecule.from_xyz('reference.xyz')
+mol2 = xyz_molecule.from_xyz('structure.xyz')
+mapping = mol2.align_atoms(reference)  # Reorders mol2 atoms to match reference
+print(f'Atom mapping: {mapping}')
 
 # Read a trajectory
 group = mol_group.load_trj('traj.xyz')

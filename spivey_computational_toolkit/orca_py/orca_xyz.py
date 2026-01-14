@@ -33,6 +33,7 @@ class xyz_molecule:
         to_xyz(filepath): write the molecule to an XYZ file
         get_distance(atom_index1, atom_index2): calculate distance between two atoms
         get_bond_angle(atom_index1, atom_index2, atom_index3): calculate bond angle between three atoms
+        align_atoms(reference_mol): align atom ordering to match a reference molecule
     """
     
     def __init__(self):
@@ -114,24 +115,93 @@ class xyz_molecule:
             atom_index1 (int): index of the first atom
             atom_index2 (int): index of the second atom (vertex)
             atom_index3 (int): index of the third atom
-        
+
         RETURNS
         -------
             angle (float): bond angle in degrees
         """
-        
+
         atom1 = self.atom_list[atom_index1]
         atom2 = self.atom_list[atom_index2]
         atom3 = self.atom_list[atom_index3]
-        
+
         v1 = np.array([atom1.x - atom2.x, atom1.y - atom2.y, atom1.z - atom2.z])
         v2 = np.array([atom3.x - atom2.x, atom3.y - atom2.y, atom3.z - atom2.z])
 
         cos_angle = np.dot(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2))
         angle = math.acos(cos_angle)
-        
+
         return math.degrees(angle)
-    
+
+    def align_atoms(self, reference_mol, tolerance:float = 0.5):
+        """
+        Align the atom ordering of this molecule to match a reference molecule.
+        Uses a greedy algorithm to match atoms based on atom type and spatial proximity.
+
+        PARAMETERS
+        ----------
+            reference_mol (xyz_molecule): reference molecule with the desired atom ordering
+            tolerance (float): maximum distance (in Angstroms) to consider atoms as matching (default: 0.5)
+
+        RETURNS
+        -------
+            mapping (list): list of indices showing the mapping from reference to this molecule
+                           mapping[i] gives the index in this molecule that corresponds to atom i in reference
+
+        RAISES
+        ------
+            ValueError: if molecules have different numbers of atoms or incompatible atom types
+        """
+        if len(self.atom_list) != len(reference_mol.atom_list):
+            raise ValueError(f"Molecules have different numbers of atoms: {len(self.atom_list)} vs {len(reference_mol.atom_list)}")
+
+        # Check that atom type composition matches
+        ref_types = sorted([a.atom_type for a in reference_mol.atom_list])
+        mol_types = sorted([a.atom_type for a in self.atom_list])
+        if ref_types != mol_types:
+            raise ValueError(f"Molecules have different atom type compositions")
+
+        n_atoms = len(self.atom_list)
+        mapping = [-1] * n_atoms
+        used = [False] * n_atoms
+
+        # For each atom in the reference molecule, find the best matching atom in this molecule
+        for ref_idx, ref_atom in enumerate(reference_mol.atom_list):
+            best_match_idx = -1
+            best_distance = float('inf')
+
+            # Find the closest unused atom of the same type
+            for mol_idx, mol_atom in enumerate(self.atom_list):
+                if used[mol_idx]:
+                    continue
+                if mol_atom.atom_type != ref_atom.atom_type:
+                    continue
+
+                # Calculate distance
+                dx = mol_atom.x - ref_atom.x
+                dy = mol_atom.y - ref_atom.y
+                dz = mol_atom.z - ref_atom.z
+                distance = math.sqrt(dx*dx + dy*dy + dz*dz)
+
+                if distance < best_distance:
+                    best_distance = distance
+                    best_match_idx = mol_idx
+
+            if best_match_idx == -1:
+                raise ValueError(f"Could not find matching atom for reference atom {ref_idx} (type: {ref_atom.atom_type})")
+
+            if best_distance > tolerance:
+                print(f"Warning: Atom {ref_idx} matched with distance {best_distance:.3f} Angstroms (exceeds tolerance {tolerance})")
+
+            mapping[ref_idx] = best_match_idx
+            used[best_match_idx] = True
+
+        # Reorder atoms according to the mapping
+        new_atom_list = [self.atom_list[mapping[i]] for i in range(n_atoms)]
+        self.atom_list = new_atom_list
+
+        return mapping
+
 
 class mol_group:
     """

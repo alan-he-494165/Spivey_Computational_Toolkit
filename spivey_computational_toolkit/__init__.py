@@ -7,5 +7,6 @@ __author__ = "Alan He from Spivey Group"
 
 # Import submodules
 from . import pygmx
+from . import orca_py
 
-__all__ = ['pygmx']
+__all__ = ['pygmx', 'orca_py']
